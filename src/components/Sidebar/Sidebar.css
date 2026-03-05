@@ -1,0 +1,322 @@
+/* ── SIDEBAR CONTAINER ─────────────────────────────────────────────────────── */
+
+.sidebar {
+  width: 340px;
+  min-width: 340px;
+  height: 100%;
+  background: #0d1117;
+  border-right: 1px solid #21262d;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── BRAND ─────────────────────────────────────────────────────────────────── */
+
+.sidebar__brand {
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid #21262d;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.sidebar__logo-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #238636, #1f6feb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.sidebar__brand-title {
+  color: #f0f6fc;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.sidebar__brand-sub {
+  color: #484f58;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}
+
+/* ── TABS ──────────────────────────────────────────────────────────────────── */
+
+.sidebar__tabs {
+  display: flex;
+  border-bottom: 1px solid #21262d;
+  flex-shrink: 0;
+}
+
+.sidebar__tab {
+  flex: 1;
+  padding: 10px 0;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: #484f58;
+  font-size: 10px;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: all 0.15s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.sidebar__tab--active {
+  background: #161b22;
+  border-bottom-color: #388bfd;
+  color: #f0f6fc;
+}
+
+.sidebar__tab-icon {
+  font-size: 11px;
+}
+
+.sidebar__tab-count {
+  font-size: 9px;
+}
+
+/* ── ACTIONS ───────────────────────────────────────────────────────────────── */
+
+.sidebar__actions {
+  padding: 10px 16px;
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid #161b22;
+  flex-shrink: 0;
+}
+
+.sidebar__action-btn {
+  flex: 1;
+  padding: 7px 0;
+  background: #161b22;
+  border: 1px solid #21262d;
+  border-radius: 6px;
+  color: #8b949e;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.sidebar__action-btn:hover {
+  border-color: #30363d;
+  color: #c9d1d9;
+}
+
+/* ── SEARCH ────────────────────────────────────────────────────────────────── */
+
+.sidebar__search {
+  padding: 8px 16px;
+  flex-shrink: 0;
+}
+
+.sidebar__search-input {
+  width: 100%;
+  background: #161b22;
+  border: 1px solid #21262d;
+  border-radius: 6px;
+  padding: 7px 10px;
+  color: #c9d1d9;
+  font-size: 12px;
+  font-family: 'IBM Plex Mono', monospace;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.sidebar__search-input:focus {
+  border-color: #388bfd;
+}
+
+/* ── NODE LIST ─────────────────────────────────────────────────────────────── */
+
+.sidebar__list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 4px 12px 20px;
+  min-height: 0;     /* critical for flex overflow */
+}
+
+.sidebar__category-group {
+  margin-bottom: 12px;
+}
+
+.sidebar__category-label {
+  color: #484f58;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  padding: 8px 6px 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* ── NODE LIST ITEM ────────────────────────────────────────────────────────── */
+
+.node-list-item {
+  padding: 8px 10px;
+  border-radius: 6px;
+  margin-bottom: 2px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid transparent;
+  transition: all 0.15s;
+}
+
+.node-list-item:hover {
+  background: #161b2288;
+}
+
+.node-list-item--selected {
+  background: #161b22;
+}
+
+.node-list-item__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.node-list-item__name {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.node-list-item__size {
+  color: #30363d;
+  font-size: 9px;
+}
+
+.node-list-item__desc {
+  color: #484f58;
+  font-size: 9px;
+  margin-top: 2px;
+  line-height: 1.4;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+/* ── DETAIL PANEL ──────────────────────────────────────────────────────────── */
+
+.detail-panel {
+  border-top: 1px solid #21262d;
+  padding: 16px;
+  background: #0d1117;
+  max-height: 280px;
+  overflow-y: auto;
+  flex-shrink: 0;
+}
+
+.detail-panel__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.detail-panel__type-tag {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 3px;
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.detail-panel__name {
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 4px;
+  word-break: break-all;
+}
+
+.detail-panel__actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.detail-panel__btn {
+  background: #161b22;
+  border: 1px solid #21262d;
+  border-radius: 4px;
+  padding: 4px 8px;
+  color: #8b949e;
+  font-size: 10px;
+  cursor: pointer;
+  font-family: 'IBM Plex Mono', monospace;
+  transition: all 0.15s;
+}
+
+.detail-panel__btn:hover {
+  border-color: #30363d;
+  color: #c9d1d9;
+}
+
+.detail-panel__btn--danger {
+  background: #21090d;
+  border-color: #5e2b1b;
+  color: #f85149;
+}
+
+.detail-panel__btn--danger:hover {
+  background: #300a0f;
+}
+
+.detail-panel__meta {
+  color: #8b949e;
+  font-size: 10px;
+  margin-bottom: 4px;
+}
+
+.detail-panel__desc {
+  color: #6e7681;
+  font-size: 11px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.detail-panel__section {
+  margin-bottom: 8px;
+}
+
+.detail-panel__section-title {
+  color: #484f58;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.detail-panel__edge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3px 6px;
+  border-radius: 4px;
+  margin-bottom: 2px;
+  background: #161b22;
+}
+
+.detail-panel__edge-remove {
+  background: none;
+  border: none;
+  color: #484f58;
+  cursor: pointer;
+  font-size: 10px;
+  padding: 0 4px;
+  transition: color 0.15s;
+}
+
+.detail-panel__edge-remove:hover {
+  color: #f85149;
+}

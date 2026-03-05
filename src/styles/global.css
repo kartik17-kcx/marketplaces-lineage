@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
+/* ── CRITICAL RESETS ──────────────────────────────────────────────────────── */
+/* Without these, height: 100vh on children won't propagate properly         */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;           /* prevent any body-level scroll */
+}
+
+body {
+  background: #010409;
+  color: #c9d1d9;
+  font-family: 'IBM Plex Mono', 'Fira Code', 'SF Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── SCROLLBAR ────────────────────────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #21262d;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #30363d;
+}
+
+/* ── FOCUS STATES ─────────────────────────────────────────────────────────── */
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #388bfd !important;
+  outline: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(1.12);
+}
+
+/* ── SELECTION ────────────────────────────────────────────────────────────── */
+
+::selection {
+  background: #388bfd44;
+  color: #f0f6fc;
+}

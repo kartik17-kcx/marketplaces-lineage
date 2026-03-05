@@ -1,0 +1,157 @@
+.node-popup {
+  position: absolute;
+  top: 64px;
+  right: 20px;
+  z-index: 20;
+  width: 340px;
+  max-height: calc(100% - 100px);
+  overflow-y: auto;
+  background: rgba(13, 17, 23, 0.95);
+  border: 1px solid #21262d;
+  border-radius: 10px;
+  padding: 18px 20px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.5);
+  animation: popup-in 0.18s ease-out;
+  pointer-events: auto;
+}
+
+@keyframes popup-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ── Close ─────────────────────────────────────────────────────────────────── */
+
+.node-popup__close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #484f58;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: color 0.15s;
+  line-height: 1;
+}
+
+.node-popup__close:hover {
+  color: #c9d1d9;
+}
+
+/* ── Tags row ──────────────────────────────────────────────────────────────── */
+
+.node-popup__tags {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.node-popup__type-pill {
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 9px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 500;
+}
+
+.node-popup__schema {
+  color: #484f58;
+  font-size: 10px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.node-popup__size {
+  color: #30363d;
+  font-size: 10px;
+  font-family: 'IBM Plex Mono', monospace;
+  margin-left: auto;
+}
+
+/* ── Name ──────────────────────────────────────────────────────────────────── */
+
+.node-popup__name {
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'IBM Plex Mono', monospace;
+  margin-bottom: 8px;
+  word-break: break-all;
+  line-height: 1.4;
+}
+
+/* ── Description ───────────────────────────────────────────────────────────── */
+
+.node-popup__desc {
+  color: #8b949e;
+  font-size: 12px;
+  line-height: 1.6;
+  font-family: 'IBM Plex Sans', sans-serif;
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #161b22;
+}
+
+/* ── Lineage sections ──────────────────────────────────────────────────────── */
+
+.node-popup__section {
+  margin-bottom: 12px;
+}
+
+.node-popup__section-title {
+  color: #484f58;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.node-popup__arrow {
+  font-size: 11px;
+  opacity: 0.6;
+}
+
+.node-popup__node-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.node-popup__node-chip {
+  display: block;
+  padding: 5px 9px;
+  background: #161b22;
+  border: 1px solid;
+  border-radius: 5px;
+  font-size: 10px;
+  font-family: 'IBM Plex Mono', monospace;
+  transition: background 0.15s;
+}
+
+.node-popup__node-chip:hover {
+  background: #1c2129;
+}
+
+/* ── Orphan message ────────────────────────────────────────────────────────── */
+
+.node-popup__orphan {
+  color: #30363d;
+  font-size: 11px;
+  font-style: italic;
+  font-family: 'IBM Plex Sans', sans-serif;
+}

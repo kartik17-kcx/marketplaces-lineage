@@ -1,0 +1,13 @@
+/* ── APP ROOT ──────────────────────────────────────────────────────────────── */
+/* This is the core fix: forces a horizontal flex layout that fills the       */
+/* viewport. Without explicit height + overflow constraints at every level,   */
+/* the browser treats the content as a single vertical flow.                  */
+
+.app-root {
+  display: flex;
+  flex-direction: row;     /* sidebar | canvas side by side */
+  width: 100%;
+  height: 100vh;           /* fill viewport height exactly */
+  overflow: hidden;        /* nothing leaks out */
+  background: #010409;
+}
