@@ -191,11 +191,6 @@
   font-weight: 500;
 }
 
-.node-list-item__size {
-  color: #30363d;
-  font-size: 9px;
-}
-
 .node-list-item__desc {
   color: #484f58;
   font-size: 9px;

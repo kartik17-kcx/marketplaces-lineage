@@ -22,7 +22,6 @@ export default function NodeForm({ node, onSave, onCancel }) {
       schema: "marketplaces",
       name: "",
       type: "source",
-      size: "",
       desc: "",
       category: "amazon_sp",
     }
@@ -56,12 +55,6 @@ export default function NodeForm({ node, onSave, onCancel }) {
         value={form.name}
         onChange={(v) => set("name", v)}
         placeholder="e.g. amazon_sp_report"
-      />
-      <FormField
-        label="Size"
-        value={form.size || ""}
-        onChange={(v) => set("size", v)}
-        placeholder="e.g. 28 MB"
       />
       {form.type === "source" && (
         <FormField

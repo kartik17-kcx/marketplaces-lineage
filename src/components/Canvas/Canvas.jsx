@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useEffect } from "react";
 import { NODE_W, COL_GAP, TYPE_COLORS } from "../../data/initialData";
 import { computeLayout, getCanvasBounds } from "../../utils/layout";
 import { useCanvas } from "../../hooks/useCanvas";
@@ -31,11 +31,22 @@ export default function Canvas({
     zoomIn,
     zoomOut,
     resetView,
+    panToNode,
   } = useCanvas();
 
   const positions = useMemo(() => computeLayout(nodes, edges), [nodes, edges]);
   const bounds = useMemo(() => getCanvasBounds(positions), [positions]);
-  const { traceNodes, traceEdges } = useLineageTrace(hovered, edges);
+
+  // ── Trace uses selected OR hovered — selected takes priority ──
+  const activeTraceId = selected || hovered;
+  const { traceNodes, traceEdges } = useLineageTrace(activeTraceId, edges);
+
+  // ── Pan to node when selected changes ──
+  useEffect(() => {
+    if (selected && positions[selected]) {
+      panToNode(positions[selected]);
+    }
+  }, [selected, positions, panToNode]);
 
   // ── Selected node detail for popup ──
   const selectedNode = selected ? nodes.find((n) => n.id === selected) : null;
@@ -225,7 +236,7 @@ export default function Canvas({
               positions={positions}
               nodes={nodes}
               isTraced={traceEdges.has(`${edge.from}-${edge.to}`)}
-              hasHover={!!hovered}
+              hasHover={!!activeTraceId}
             />
           ))}
 
@@ -237,7 +248,7 @@ export default function Canvas({
               position={positions[node.id]}
               isHovered={hovered === node.id}
               isSelected={selected === node.id}
-              isDimmed={!!hovered && !traceNodes.has(node.id)}
+              isDimmed={!!activeTraceId && !traceNodes.has(node.id)}
               onMouseEnter={() => onHover(node.id)}
               onMouseLeave={onLeave}
               onClick={(e) => {

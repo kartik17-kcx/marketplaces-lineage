@@ -25,9 +25,6 @@ export default function NodeListItem({
         <span className="node-list-item__name" style={{ color: c.text }}>
           {truncate(node.name, 32)}
         </span>
-        {node.size && (
-          <span className="node-list-item__size">{node.size}</span>
-        )}
       </div>
       <div className="node-list-item__desc">
         {truncate(node.desc || "", 60)}

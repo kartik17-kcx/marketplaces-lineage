@@ -73,13 +73,6 @@
   font-family: 'IBM Plex Mono', monospace;
 }
 
-.node-popup__size {
-  color: #30363d;
-  font-size: 10px;
-  font-family: 'IBM Plex Mono', monospace;
-  margin-left: auto;
-}
-
 /* ── Name ──────────────────────────────────────────────────────────────────── */
 
 .node-popup__name {

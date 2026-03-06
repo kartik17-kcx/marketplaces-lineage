@@ -24,7 +24,6 @@ export default function NodePopup({ node, upstream, downstream, onClose }) {
           {node.type}
         </span>
         <span className="node-popup__schema">{node.schema}</span>
-        {node.size && <span className="node-popup__size">{node.size}</span>}
       </div>
 
       {/* Name */}

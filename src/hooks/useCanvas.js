@@ -1,10 +1,12 @@
 import { useState, useCallback, useEffect, useRef } from "react";
+import { NODE_W, NODE_H } from "../data/initialData";
 
 const ZOOM_MIN = 0.2;
 const ZOOM_MAX = 2.0;
 const ZOOM_STEP_WHEEL = 0.04;
 const ZOOM_STEP_BUTTON = 0.08;
 const ZOOM_DEFAULT = 0.62;
+const FOCUS_ZOOM = 0.85;
 
 /**
  * Handles pan/zoom/drag state for the SVG canvas.
@@ -67,6 +69,24 @@ export function useCanvas() {
     setPan({ x: 0, y: 0 });
   }, []);
 
+  // ── Pan to center a specific node on screen ──
+  const panToNode = useCallback((nodePosition) => {
+    if (!nodePosition || !svgRef.current) return;
+    const rect = svgRef.current.getBoundingClientRect();
+    const z = FOCUS_ZOOM;
+
+    // Center of node in world coords
+    const nodeCenterX = nodePosition.x + NODE_W / 2;
+    const nodeCenterY = nodePosition.y + NODE_H / 2;
+
+    // Pan so that node center maps to viewport center
+    const newPanX = rect.width / 2 - nodeCenterX * z;
+    const newPanY = rect.height / 2 - nodeCenterY * z;
+
+    setZoom(z);
+    setPan({ x: newPanX, y: newPanY });
+  }, []);
+
   return {
     svgRef,
     pan,
@@ -78,5 +98,6 @@ export function useCanvas() {
     zoomIn,
     zoomOut,
     resetView,
+    panToNode,
   };
 }

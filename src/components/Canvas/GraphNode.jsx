@@ -73,31 +73,6 @@ export default function GraphNode({
         {node.schema}
       </text>
 
-      {/* Size badge */}
-      {node.size && (
-        <>
-          <rect
-            x={NODE_W - (node.size.length * 5.8 + 16)}
-            y={7}
-            width={node.size.length * 5.8 + 12}
-            height={15}
-            rx={3}
-            fill={c.tag}
-          />
-          <text
-            x={NODE_W - 10}
-            y={17.5}
-            textAnchor="end"
-            fill={c.tagText}
-            fontSize={8}
-            fontFamily="IBM Plex Mono"
-            opacity={0.7}
-          >
-            {node.size}
-          </text>
-        </>
-      )}
-
       {/* Table name */}
       <text
         x={10}

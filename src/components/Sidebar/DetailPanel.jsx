@@ -47,7 +47,7 @@ export default function DetailPanel({
 
       {/* Meta */}
       <div className="detail-panel__meta">
-        {node.schema} · {node.size || "—"}
+        {node.schema}
       </div>
       <div className="detail-panel__desc">{node.desc}</div>
 
